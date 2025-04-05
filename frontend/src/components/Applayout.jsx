@@ -1,11 +1,12 @@
 import Navbar from "./Navbar";
-import Body from "./Body";
+import { Outlet } from "react-router-dom";
 
 const Applayout = () => {
   return (
     <div>
       <Navbar />
-      <Body />
+      {/* outlet is used for dynamic routing for childs */}
+      <Outlet />
     </div>
   );
 };

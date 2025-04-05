@@ -1,31 +1,23 @@
-import { Link } from "react-router";
+import { Link } from "react-router-dom";
+
 const Navbar = () => {
   return (
-    <div>
-      <ul
-        style={{
-          display: "flex",
-          listStyleType: "none",
-          justifyContent: "space-evenly",
-          padding: "20px 15rem",
-          border: "1px solid",
-          cursor: "pointer",
-        }}
-      >
-        <li>
+    <nav className="bg-white shadow-md">
+      <ul className="flex justify-evenly px-60 py-4 text-gray-700 font-medium">
+        <li className="hover:text-blue-600 transition-colors">
           <Link to="/home">Home</Link>
         </li>
-        <li>
+        <li className="hover:text-blue-600 transition-colors">
           <Link to="/about">About</Link>
         </li>
-        <li>
+        <li className="hover:text-blue-600 transition-colors">
           <Link to="/contact">Contact</Link>
         </li>
-        <li>
+        <li className="hover:text-blue-600 transition-colors">
           <Link to="/cart">Cart</Link>
         </li>
       </ul>
-    </div>
+    </nav>
   );
 };
 

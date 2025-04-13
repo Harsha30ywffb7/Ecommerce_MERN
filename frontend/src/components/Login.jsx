@@ -9,6 +9,7 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
 
   console.log(email, username, password);
 
@@ -22,8 +23,24 @@ const Login = () => {
       });
 
       console.log(response);
+
+      if (response.status === 200) {
+        navigate("/home");
+      }
+    } else {
+      const response = await axios.post("http://localhost:3000/login", {
+        email: email,
+        password: password,
+      });
+      console.log(response);
+      if (response.status == 200) {
+        navigate("/home");
+      }
+      console.log(response.error);
+
+      // navigate("/login");
+      setError(response.error);
     }
-    navigate("/home");
   };
 
   const handleToggle = () => {
@@ -80,6 +97,8 @@ const Login = () => {
           className="w-full px-4 py-2 rounded-full mt-1 border focus:outline-none focus:ring-2 focus:ring-blue-400"
         />
       </div>
+
+      <p className="text-red-500">{error}</p>
 
       <p className="text-sm text-center mb-4">
         New user?{" "}
